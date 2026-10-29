@@ -1,0 +1,91 @@
+[
+  {
+    "label": "Homepage entry automatically shows enquiry popup",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 360px: fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 360px: image remains visible",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 390px: fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 390px: image remains visible",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 430px: fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 430px: image remains visible",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 768px: fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 768px: image remains visible",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 1024px: fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 1024px: image remains visible",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 1440px: fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 1440px: image remains visible",
+    "passed": true
+  },
+  {
+    "label": "Quick enquiry has only three fields",
+    "passed": true
+  },
+  {
+    "label": "Quick enquiry 1100x600: no internal scrolling",
+    "passed": true
+  },
+  {
+    "label": "Quick enquiry 1440x650: no internal scrolling",
+    "passed": true
+  },
+  {
+    "label": "Quick enquiry 390x640: no internal scrolling",
+    "passed": true
+  },
+  {
+    "label": "Quick enquiry 360x568: no internal scrolling",
+    "passed": true
+  },
+  {
+    "label": "Quick enquiry 844x390: no internal scrolling",
+    "passed": true
+  },
+  {
+    "label": "Enquiry validates phone without losing form",
+    "passed": true
+  },
+  {
+    "label": "Enquiry submission saves to shared demo data",
+    "passed": true
+  },
+  {
+    "label": "No uncaught browser exceptions",
+    "passed": true,
+    "errors": []
+  }
+]

@@ -1,0 +1,419 @@
+[
+  {
+    "label": "Homepage entry automatically shows enquiry popup",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 360px: fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 360px: image remains visible",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 390px: fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 390px: image remains visible",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 430px: fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 430px: image remains visible",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 768px: fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 768px: image remains visible",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 1024px: fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 1024px: image remains visible",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 1440px: fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Enquiry popup 1440px: image remains visible",
+    "passed": true
+  },
+  {
+    "label": "Enquiry validates phone without losing form",
+    "passed": true
+  },
+  {
+    "label": "Enquiry submission saves to shared demo data",
+    "passed": true
+  },
+  {
+    "label": "Hero video is muted, looping and inline",
+    "passed": true
+  },
+  {
+    "label": "Hero video actually advances",
+    "passed": true
+  },
+  {
+    "label": "Hero video pause works",
+    "passed": true
+  },
+  {
+    "label": "Footer can reopen the enquiry form",
+    "passed": true
+  },
+  {
+    "label": "Footer fits mobile without horizontal overflow",
+    "passed": true
+  },
+  {
+    "label": "Footer back-to-top works",
+    "passed": true
+  },
+  {
+    "label": "Homepage renders without horizontal overflow",
+    "passed": true
+  },
+  {
+    "label": "Featured composition preserves demo labels",
+    "passed": true
+  },
+  {
+    "label": "Featured wishlist remains functional",
+    "passed": true
+  },
+  {
+    "label": "Featured quick view preserves property information",
+    "passed": true
+  },
+  {
+    "label": "Destination index and active photo update",
+    "passed": true
+  },
+  {
+    "label": "Explorer action applies real destination filter",
+    "passed": true
+  },
+  {
+    "label": "Journey collection: Near Sacred Sites",
+    "passed": true
+  },
+  {
+    "label": "Journey collection: Family-Friendly Stays",
+    "passed": true
+  },
+  {
+    "label": "Journey collection: Peaceful Retreats",
+    "passed": true
+  },
+  {
+    "label": "Featured mobile rail supports swipe",
+    "passed": true
+  },
+  {
+    "label": "Featured native horizontal scroll advances cards",
+    "passed": true
+  },
+  {
+    "label": "Saved navigation opens the existing wishlist route",
+    "passed": true
+  },
+  {
+    "label": "Bookings navigation opens existing booking route",
+    "passed": true
+  },
+  {
+    "label": "Budget chip filters actual room prices",
+    "passed": true
+  },
+  {
+    "label": "Family chip filters family rooms",
+    "passed": true
+  },
+  {
+    "label": "Parking chip filters parking amenity",
+    "passed": true
+  },
+  {
+    "label": "Destination search filters actual locations",
+    "passed": true
+  },
+  {
+    "label": "Guest selector updates search",
+    "passed": true
+  },
+  {
+    "label": "Wishlist heart persists in shared store",
+    "passed": true
+  },
+  {
+    "label": "Quick view opens accessible dialog",
+    "passed": true
+  },
+  {
+    "label": "Compares three properties",
+    "passed": true
+  },
+  {
+    "label": "Date picker opens",
+    "passed": true
+  },
+  {
+    "label": "Tablet layout has no overflow",
+    "passed": true
+  },
+  {
+    "label": "Mobile filters open as a bottom sheet",
+    "passed": true
+  },
+  {
+    "label": "Mobile destinations use horizontal snap cards",
+    "passed": true
+  },
+  {
+    "label": "Mobile layout has no overflow",
+    "passed": true
+  },
+  {
+    "label": "Mobile search opens accessible sheet",
+    "passed": true
+  },
+  {
+    "label": "Incomplete dates keep one clear search dialog",
+    "passed": true
+  },
+  {
+    "label": "Guest counter does not accidentally submit search",
+    "passed": true
+  },
+  {
+    "label": "Mobile search applies dates and closes sheet",
+    "passed": true
+  },
+  {
+    "label": "Swipe pagination updates active destination",
+    "passed": true
+  },
+  {
+    "label": "Homepage 360px: no overflow",
+    "passed": true
+  },
+  {
+    "label": "Homepage 360px: search above fold",
+    "passed": true
+  },
+  {
+    "label": "Homepage 360px: sticky navigation",
+    "passed": true
+  },
+  {
+    "label": "Homepage 390px: no overflow",
+    "passed": true
+  },
+  {
+    "label": "Homepage 390px: search above fold",
+    "passed": true
+  },
+  {
+    "label": "Homepage 390px: sticky navigation",
+    "passed": true
+  },
+  {
+    "label": "Homepage 430px: no overflow",
+    "passed": true
+  },
+  {
+    "label": "Homepage 430px: search above fold",
+    "passed": true
+  },
+  {
+    "label": "Homepage 430px: sticky navigation",
+    "passed": true
+  },
+  {
+    "label": "Homepage 768px: no overflow",
+    "passed": true
+  },
+  {
+    "label": "Homepage 768px: search above fold",
+    "passed": true
+  },
+  {
+    "label": "Homepage 1024px: no overflow",
+    "passed": true
+  },
+  {
+    "label": "Homepage 1024px: search above fold",
+    "passed": true
+  },
+  {
+    "label": "Homepage 1440px: no overflow",
+    "passed": true
+  },
+  {
+    "label": "Homepage 1440px: search above fold",
+    "passed": true
+  },
+  {
+    "label": "Mobile sticky booking control is visible",
+    "passed": true
+  },
+  {
+    "label": "Booking opens mobile bottom sheet",
+    "passed": true
+  },
+  {
+    "label": "Fullscreen gallery navigates photos",
+    "passed": true
+  },
+  {
+    "label": "Failed payment gives accessible feedback",
+    "passed": true
+  },
+  {
+    "label": "Successful simulated payment confirms booking",
+    "passed": true
+  },
+  {
+    "label": "Cancellation request updates shared booking",
+    "passed": true
+  },
+  {
+    "label": "Admin approval publishes a property",
+    "passed": true
+  },
+  {
+    "label": "Owner edit updates shared property",
+    "passed": true
+  },
+  {
+    "label": "Owner room pricing persists",
+    "passed": true
+  },
+  {
+    "label": "Mobile dashboard has no page overflow",
+    "passed": true
+  },
+  {
+    "label": "Group enquiry reaches shared admin data",
+    "passed": true
+  },
+  {
+    "label": "Reduced motion disables decorative animations",
+    "passed": true
+  },
+  {
+    "label": "/property/godavari-comfort-inn 360px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "Property 360px: booking bar unobstructed",
+    "passed": true
+  },
+  {
+    "label": "/property/godavari-comfort-inn 390px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "Property 390px: booking bar unobstructed",
+    "passed": true
+  },
+  {
+    "label": "/property/godavari-comfort-inn 430px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "Property 430px: booking bar unobstructed",
+    "passed": true
+  },
+  {
+    "label": "/property/godavari-comfort-inn 768px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/property/godavari-comfort-inn 1024px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/property/godavari-comfort-inn 1440px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/owner 360px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/owner 390px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/owner 430px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/owner 768px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/owner 1024px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/owner 1440px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/admin 360px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/admin 390px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/admin 430px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/admin 768px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/admin 1024px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "/admin 1440px: no page overflow",
+    "passed": true
+  },
+  {
+    "label": "Reduced motion keeps hero video paused by default",
+    "passed": true
+  },
+  {
+    "label": "Reduced motion still allows explicit user playback",
+    "passed": true
+  },
+  {
+    "label": "Admin pages are not interrupted by the visitor popup",
+    "passed": true
+  },
+  {
+    "label": "No uncaught browser exceptions",
+    "passed": true,
+    "errors": []
+  }
+]
