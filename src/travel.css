@@ -114,7 +114,7 @@ textarea:focus-visible {
   background: #fff;
 }
 .signature-home .hero h1 {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Manrope", "Noto Sans Devanagari", sans-serif;
   font-size: clamp(36px, 3.8vw, 56px);
   font-weight: 700;
   letter-spacing: -2px;
@@ -282,7 +282,7 @@ textarea:focus-visible {
   padding-bottom: 58px;
 }
 .section-heading h2 {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Manrope", "Noto Sans Devanagari", sans-serif;
   font-size: 32px;
   font-weight: 700;
   letter-spacing: -1.2px;
@@ -927,3 +927,11 @@ textarea:focus-visible {
 .premium-footer .footer-bottom{padding-block:12px 16px;gap:12px}
 @media(max-width:900px){.premium-footer .footer-about{display:block}.premium-footer .footer-main{gap:22px}.premium-footer .footer-about>p{margin:12px 0;max-width:460px}.premium-footer .footer-invitation{padding-block:28px}}
 @media(max-width:600px){.premium-footer .footer-main{gap:22px 18px;padding-block:24px}.premium-footer .footer-invitation{gap:18px;padding-block:26px 22px}.premium-footer .footer-invitation h2{font-size:30px}.premium-footer .footer-bottom{gap:8px}.premium-footer .footer-main nav>a,.premium-footer .footer-main nav>button{min-height:36px}}
+/* Manrope display typography, Inter reading text and native Devanagari support. */
+body{font-family:"Inter","Noto Sans Devanagari",system-ui,sans-serif;line-height:1.6}
+h1,h2,h3,.brand,.footer-brand,.card-price strong{font-family:"Manrope","Noto Sans Devanagari",sans-serif}
+h1,h2,h3{font-weight:700}
+.footer-invitation h2 em,.hero h1 em,.destination-index strong{font-family:"Manrope","Noto Sans Devanagari",sans-serif;font-style:normal;font-weight:700}
+html:lang(mr) body,html:lang(hi) body{font-family:"Noto Sans Devanagari","Inter",sans-serif}
+html:lang(mr) h1,html:lang(mr) h2,html:lang(mr) h3,html:lang(hi) h1,html:lang(hi) h2,html:lang(hi) h3{font-family:"Noto Sans Devanagari","Manrope",sans-serif;letter-spacing:normal;line-height:1.45}
+html:lang(mr) .hero h1,html:lang(hi) .hero h1{font-family:"Noto Sans Devanagari","Manrope",sans-serif;letter-spacing:normal;line-height:1.4;font-size:clamp(30px,3.3vw,48px)}
