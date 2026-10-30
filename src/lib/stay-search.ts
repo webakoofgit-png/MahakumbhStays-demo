@@ -40,6 +40,10 @@ export function filterStays(
         (DESTINATION_MATCH[criteria.destination] ?? [criteria.destination]).includes(p.location),
     )
     .filter((p) => priceOf(p) <= maxPrice)
+    .filter(
+      (p) => !chips.includes("Premium Comfort") || ["Premium Hotel", "Resort"].includes(p.category),
+    )
+    .filter((p) => !chips.includes("Group Accommodation") || p.maxGuests >= 6)
     .filter((p) => !chips.includes("Budget Stays") || priceOf(p) <= 2000)
     .filter((p) => !chips.includes("Family Friendly") || p.amenities.includes("familyRooms"))
     .filter(

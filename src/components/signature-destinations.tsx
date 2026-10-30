@@ -211,7 +211,7 @@ export function JourneyCollections({
         <div className="section-heading">
           <div>
             <span className="eyebrow">STAY BY YOUR JOURNEY</span>
-            <h2 id="journey-heading">Stay Close to What Matters</h2>
+            <h2 id="journey-heading">Find the Right Stay for Your Journey</h2>
             <p>Find accommodation that fits the way you want to experience Nashik Kumbh 2027.</p>
           </div>
           <Compass size={31} strokeWidth={1} />
@@ -219,7 +219,25 @@ export function JourneyCollections({
         <div className="journey-grid">
           {[
             {
-              title: "Near Sacred Sites",
+              title: "Budget-Friendly Stays",
+              description: "Thoughtful comfort at a price that fits.",
+              image: IMG.roomA,
+              icon: Compass,
+              destination: "" as const,
+              chips: ["Budget Stays"],
+              tag: "SMARTER STAYS",
+            },
+            {
+              title: "Premium Comfort",
+              description: "Spacious rooms and a little more indulgence.",
+              image: IMG.resortB,
+              icon: Compass,
+              destination: "" as const,
+              chips: ["Premium Comfort"],
+              tag: "TIME TO UNWIND",
+            },
+            {
+              title: "Near Trimbakeshwar",
               description: "Less travel. More time for the moments that matter.",
               image: "/images/trimbakeshwar-card.jpg",
               icon: MapPin,
@@ -228,7 +246,7 @@ export function JourneyCollections({
               tag: "01 / FIND YOUR CONNECTION",
             },
             {
-              title: "Family-Friendly Stays",
+              title: "Family Accommodation",
               description: "A little more room for every generation to feel at home.",
               image: IMG.roomH,
               icon: Users,
@@ -237,12 +255,12 @@ export function JourneyCollections({
               tag: "02 / BRING EVERYONE ALONG",
             },
             {
-              title: "Peaceful Retreats",
-              description: "Quiet hills, unhurried mornings and space to recharge.",
+              title: "Group Accommodation",
+              description: "Find room for your people and your shared memories.",
               image: "/images/igatpuri-card.jpg",
               icon: Leaf,
-              destination: "Igatpuri" as const,
-              chips: [],
+              destination: "" as const,
+              chips: ["Group Accommodation"],
               tag: "03 / FIND YOUR QUIET",
             },
           ].map((j) => (
@@ -254,13 +272,7 @@ export function JourneyCollections({
               <div className="journey-photo">
                 <img
                   src={j.image}
-                  alt={
-                    j.title === "Family-Friendly Stays"
-                      ? "A spacious sample family accommodation"
-                      : j.title === "Peaceful Retreats"
-                        ? "Green hills near Igatpuri"
-                        : "Trimbakeshwar temple"
-                  }
+                  alt={j.title === "Near Trimbakeshwar" ? "Trimbakeshwar temple" : j.title === "Group Accommodation" ? "Hills near Igatpuri" : `Sample accommodation for ${j.title.toLowerCase()}`}
                   loading="lazy"
                 />
                 <span>

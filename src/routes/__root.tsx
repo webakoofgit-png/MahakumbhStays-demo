@@ -1,4 +1,4 @@
-﻿import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import premiumCss from "../premium.css?url";
 import signatureCss from "../signature.css?url";
 import hospitalityCss from "../hospitality.css?url";
+import travelCss from "../travel.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -108,6 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: premiumCss },
       { rel: "stylesheet", href: signatureCss },
       { rel: "stylesheet", href: hospitalityCss },
+      { rel: "stylesheet", href: travelCss },
       { rel: "preconnect", href: "https://images.unsplash.com" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },

@@ -56,12 +56,31 @@ export function Marketplace() {
   const [group, setGroup] = useState(false);
   const [enquiryOpen, setEnquiryOpen] = useState(false);
   const [notice, setNotice] = useState("");
+  const [accountOpen, setAccountOpen] = useState(false);
   const [menu, setMenu] = useState(false);
   const [searched, setSearched] = useState(false);
+  const [category, setCategory] = useState("All Stays");
   useEffect(() => {
     if (state.searchCriteria) setCriteria(state.searchCriteria);
   }, [state.searchCriteria]);
   const results = filterStays(state, criteria, active, maxPrice)
+    .filter(
+      (p) =>
+        category === "All Stays" ||
+        (category === "Hotels"
+          ? ["Budget Hotel", "Premium Hotel", "Resort", "Lodge"].includes(p.category)
+          : category === "Premium Hotels & Resorts"
+            ? ["Premium Hotel", "Resort"].includes(p.category)
+            : p.category ===
+              ((
+                {
+                  Homestays: "Homestay",
+                  Dharamshalas: "Dharamshala",
+                  "Tent Cities": "Tent City",
+                  "Budget Hotels": "Budget Hotel",
+                } as Record<string, string>
+              )[category] ?? category)),
+    )
     .filter((p) => path !== "/wishlist" || state.wishlist.includes(p.id))
     .sort((a, b) =>
       sort === "price"
@@ -91,6 +110,7 @@ export function Marketplace() {
   function applyCollection(destination: SearchCriteria["destination"], nextChips: string[] = []) {
     const next = { ...criteria, destination };
     setCriteria(next);
+    setCategory("All Stays");
     setActive(nextChips);
     setMaxPrice(20000);
     setSearched(true);
@@ -126,7 +146,7 @@ export function Marketplace() {
         Skip to content
       </a>
       <div className="announcement">
-        <span>A meaningful journey. A thoughtfully chosen stay.</span>
+        <span>NASHIK KUMBH 2027 · Start with a stay that feels right.</span>
         <a href="/stays">
           Discover Nashik & Trimbakeshwar <ArrowRight size={13} />
         </a>
@@ -155,6 +175,9 @@ export function Marketplace() {
           <a className="icon-button" href="/wishlist" aria-label="Your wishlist">
             <Heart size={19} />
           </a>
+          <button className="account-button outline-button" onClick={() => setAccountOpen(true)}>
+            Login / Register
+          </button>
           <a href="/bookings" className="outline-button">
             My bookings
           </a>
@@ -218,7 +241,6 @@ export function Marketplace() {
             <>
               {home && (
                 <section className="hero">
-                  <HeroVideo />
                   <div className="hero-shade" />
                   <div className="hero-content container">
                     <span className="hero-label">
@@ -232,13 +254,12 @@ export function Marketplace() {
                     </h1>
                     <p className="hero-signature">Your Stay for Every Sacred Journey.</p>
                     <p className="hero-support">
-                      Thoughtful stays, local warmth and room for everyone.
-                      <br />
-                      Discover your place in Nashik & Trimbakeshwar.
+                      Discover comfortable hotels, homestays, dharamshalas and premium accommodation
+                      across Nashik and Trimbakeshwar.
                     </p>
                     <div className="hero-proof">
                       <span>
-                        <ShieldCheck size={16} /> Verified demo stays
+                        <ShieldCheck size={16} /> 10 curated demo stays
                       </span>
                       <i />
                       <span>
@@ -246,21 +267,34 @@ export function Marketplace() {
                       </span>
                     </div>
                   </div>
-                  <a
-                    className="hero-caption"
-                    href="#destination-explorer"
-                    aria-label="Explore Nashik destinations"
-                  >
-                    <span className="location-indicator" />
-                    <div>
-                      <small>FEEL THE GATHERING</small>
-                      <strong>Kumbh Mela</strong>
-                      <span>Prayagraj · archival footage</span>
-                    </div>
-                    <ArrowUpRight size={18} />
-                  </a>
+                  <div className="hero-destination-photo">
+                    <img
+                      src="/images/trimbakeshwar-card.jpg"
+                      alt="Trimbakeshwar temple"
+                      fetchPriority="high"
+                    />
+                    <span>
+                      <MapPin size={16} /> Trimbakeshwar · Nashik
+                    </span>
+                  </div>
                 </section>
               )}
+              <nav className="stay-category-nav container" aria-label="Accommodation categories">
+                {["All Stays", "Hotels", "Homestays", "Dharamshalas", "Tent Cities"].map((name) => (
+                  <button
+                    key={name}
+                    aria-pressed={category === name}
+                    onClick={() => {
+                      setCategory(name);
+                      setSearched(true);
+                      showResults();
+                    }}
+                  >
+                    <BedDouble size={19} />
+                    {name}
+                  </button>
+                ))}
+              </nav>
               <section
                 className={`search-area container ${home ? "floating" : ""}`}
                 aria-label="Find accommodation"
@@ -303,7 +337,7 @@ export function Marketplace() {
                 <>
                   <div className="trust-strip container">
                     <span>
-                      <ShieldCheck /> Personally verified listings
+                      <ShieldCheck /> Sample accommodation listings
                       <small>Comfort you can count on</small>
                     </span>
                     <span>
@@ -317,6 +351,78 @@ export function Marketplace() {
                       <Users /> Travel together, stay together<small>Family & group friendly</small>
                     </span>
                   </div>
+                  <section className="cinema-section container" aria-label="A glimpse of Kumbh">
+                    <HeroVideo />
+                    <div className="cinema-copy">
+                      <span className="eyebrow">THE JOURNEY BEGINS WITH YOU</span>
+                      <h2>
+                        Your Journey.
+                        <br />
+                        Your Stay.
+                        <br />
+                        Your Experience.
+                      </h2>
+                      <p>Make room for discovery in Nashik and Trimbakeshwar.</p>
+                      <button className="primary-button" onClick={() => applyCollection("")}>
+                        Explore Stays <ArrowRight size={17} />
+                      </button>
+                      <small>Video: Prayagraj Kumbh · archival footage</small>
+                    </div>
+                  </section>
+                  <section className="container section accommodation-section">
+                    <div className="section-heading">
+                      <div>
+                        <span className="eyebrow">A LITTLE SOMETHING FOR EVERYONE</span>
+                        <h2>However you travel, find your stay.</h2>
+                        <p>Five ways to settle in. One unforgettable journey.</p>
+                      </div>
+                      <a className="text-link" href="/stays">
+                        Explore all stays <ArrowUpRight size={17} />
+                      </a>
+                    </div>
+                    <div className="accommodation-grid">
+                      {[
+                        { name: "Budget Hotels", image: IMG.roomA, caption: "Easy on the budget" },
+                        {
+                          name: "Premium Hotels & Resorts",
+                          image: IMG.resortB,
+                          caption: "A little extra comfort",
+                        },
+                        { name: "Homestays", image: IMG.homeB, caption: "Feel at home, away" },
+                        {
+                          name: "Dharamshalas",
+                          image: IMG.extB,
+                          caption: "Stay close to your purpose",
+                        },
+                        {
+                          name: "Tent Cities",
+                          image: IMG.tentA,
+                          caption: "A different kind of escape",
+                        },
+                      ].map((item) => (
+                        <button
+                          key={item.name}
+                          className="accommodation-card"
+                          onClick={() => {
+                            setCategory(item.name);
+                            setSearched(true);
+                            showResults();
+                          }}
+                        >
+                          <img
+                            src={item.image}
+                            alt={`Sample ${item.name.toLowerCase()} accommodation`}
+                            loading="lazy"
+                          />
+                          <span>
+                            <small>{item.caption}</small>
+                            <strong>{item.name}</strong>
+                          </span>
+                          <ArrowUpRight size={21} />
+                        </button>
+                      ))}
+                    </div>
+                  </section>
                   <SignatureDestinations
                     properties={state.properties}
                     onExplore={(destination) => applyCollection(destination)}
@@ -340,7 +446,7 @@ export function Marketplace() {
                         ? "Your little collection of favourites."
                         : searched
                           ? "Find your perfect place."
-                          : "Consider this your shortlist."}
+                          : "Stays you’ll love coming back to."}
                     </h2>
                     <p>
                       {searched
@@ -422,6 +528,9 @@ export function Marketplace() {
                           <a href={`/property/${p.slug}`}>{p.name}</a>
                         </h3>
                         <AmenityRow property={p} />
+                        <a className="property-details-cta" href={`/property/${p.slug}`}>
+                          View Details <ArrowUpRight size={15} />
+                        </a>
                         <div className="card-price">
                           <div>
                             <strong>{money(priceOf(p))}</strong>
@@ -449,6 +558,7 @@ export function Marketplace() {
                     <button
                       className="outline-button"
                       onClick={() => {
+                        setCategory("All Stays");
                         setCriteria(initialCriteria);
                         setActive([]);
                         setMaxPrice(20000);
@@ -512,6 +622,53 @@ export function Marketplace() {
           ))}
         </nav>
       )}
+      <Modal title="Your traveller profile" open={accountOpen} close={() => setAccountOpen(false)}>
+        <p className="muted">
+          Demo account · Your profile is saved only in this browser. No password or real sign-in
+          required.
+        </p>
+        <form
+          className="stack-form"
+          onSubmit={(event) => {
+            event.preventDefault();
+            const data = new FormData(event.currentTarget);
+            demoActions.updateProfile({
+              name: String(data.get("name")),
+              email: String(data.get("email")),
+              phone: String(data.get("phone")),
+            });
+            setAccountOpen(false);
+          }}
+        >
+          <label>
+            Name
+            <input name="name" autoComplete="name" required defaultValue={state.demoProfile.name} />
+          </label>
+          <label>
+            Email
+            <input
+              name="email"
+              type="email"
+              autoComplete="email"
+              required
+              defaultValue={state.demoProfile.email}
+            />
+          </label>
+          <label>
+            Phone
+            <input
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              required
+              defaultValue={state.demoProfile.phone}
+            />
+          </label>
+          <button className="primary-button" type="submit">
+            Continue with demo profile <ArrowRight size={16} />
+          </button>
+        </form>
+      </Modal>
       <Modal title="Who's coming along?" open={guests} close={() => setGuests(false)}>
         <GuestPicker value={criteria} onChange={setCriteria} />
         <button className="primary-button" onClick={() => setGuests(false)}>

@@ -1,4 +1,4 @@
-﻿@import "tailwindcss" source(none);
+@import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 
@@ -6,7 +6,7 @@
 
 /*
  * MahakumbhStays design system.
- * Brand: Deep Navy primary, Warm Saffron accent. Warm, premium hospitality
+ * Brand: Primary Blue, Bright Cyan, Vibrant Orange, Light Blue and Deep Navy. Modern travel
  * look. All colors are oklch tokens registered in @theme inline.
  */
 
@@ -46,55 +46,55 @@
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.3 0.032 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.3 0.032 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.3 0.032 250);
-  --primary: oklch(0.28 0.052 257); /* deep navy #172B4D */
-  --primary-foreground: oklch(0.98 0.004 247);
-  --secondary: oklch(0.977 0.004 255); /* #F7F8FA */
-  --secondary-foreground: oklch(0.28 0.052 257);
-  --muted: oklch(0.965 0.004 255);
-  --muted-foreground: oklch(0.56 0.028 255); /* #697586 */
-  --accent: oklch(0.96 0.01 255);
-  --accent-foreground: oklch(0.28 0.052 257);
-  --destructive: oklch(0.58 0.21 25);
-  --destructive-foreground: oklch(0.98 0.004 247);
-  --success: oklch(0.56 0.115 163); /* #16865D */
-  --saffron: oklch(0.72 0.15 60); /* #E89136 */
-  --saffron-foreground: oklch(0.99 0.01 80);
-  --saffron-soft: oklch(0.95 0.035 75);
-  --border: oklch(0.92 0.005 255); /* #E5E7EB */
-  --input: oklch(0.92 0.005 255);
-  --ring: oklch(0.72 0.15 60);
+  --background: #FFFFFF;
+  --foreground: #172B4D;
+  --card: #FFFFFF;
+  --card-foreground: #172B4D;
+  --popover: #FFFFFF;
+  --popover-foreground: #172B4D;
+  --primary: #0866D9; /* deep navy #172B4D */
+  --primary-foreground: #FFFFFF;
+  --secondary: #F3F9FF; /* #F7F8FA */
+  --secondary-foreground: #172B4D;
+  --muted: #F3F9FF;
+  --muted-foreground: #172B4Db3; /* #697586 */
+  --accent: #F3F9FF;
+  --accent-foreground: #0866D9;
+  --destructive: #172B4D;
+  --destructive-foreground: #FFFFFF;
+  --success: #0866D9; /* #16865D */
+  --saffron: #FF8A35; /* #E89136 */
+  --saffron-foreground: #172B4D;
+  --saffron-soft: #FF8A351a;
+  --border: #0866D91f; /* #E5E7EB */
+  --input: #0866D92e;
+  --ring: #0866D9;
 }
 
 .dark {
-  --background: oklch(0.22 0.045 257);
-  --foreground: oklch(0.96 0.005 250);
-  --card: oklch(0.25 0.05 257);
-  --card-foreground: oklch(0.96 0.005 250);
-  --popover: oklch(0.25 0.05 257);
-  --popover-foreground: oklch(0.96 0.005 250);
-  --primary: oklch(0.85 0.04 250);
-  --primary-foreground: oklch(0.24 0.05 257);
-  --secondary: oklch(0.3 0.04 257);
-  --secondary-foreground: oklch(0.96 0.005 250);
-  --muted: oklch(0.3 0.04 257);
-  --muted-foreground: oklch(0.7 0.02 255);
-  --accent: oklch(0.3 0.04 257);
-  --accent-foreground: oklch(0.96 0.005 250);
-  --destructive: oklch(0.68 0.18 25);
-  --destructive-foreground: oklch(0.98 0.004 247);
-  --success: oklch(0.68 0.12 163);
-  --saffron: oklch(0.76 0.14 60);
-  --saffron-foreground: oklch(0.2 0.05 60);
-  --saffron-soft: oklch(0.35 0.06 60);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.76 0.14 60);
+  --background: #FFFFFF;
+  --foreground: #172B4D;
+  --card: #FFFFFF;
+  --card-foreground: #172B4D;
+  --popover: #FFFFFF;
+  --popover-foreground: #172B4D;
+  --primary: #0866D9;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F3F9FF;
+  --secondary-foreground: #172B4D;
+  --muted: #F3F9FF;
+  --muted-foreground: #172B4Db3;
+  --accent: #F3F9FF;
+  --accent-foreground: #0866D9;
+  --destructive: #172B4D;
+  --destructive-foreground: #FFFFFF;
+  --success: #0866D9;
+  --saffron: #FF8A35;
+  --saffron-foreground: #172B4D;
+  --saffron-soft: #FF8A351a;
+  --border: #0866D91f;
+  --input: #0866D92e;
+  --ring: #0866D9;
 }
 
 @layer base {

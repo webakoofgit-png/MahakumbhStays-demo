@@ -6,11 +6,20 @@ export function HeroVideo() {
   const frame = useRef<HTMLDivElement>(null);
   const userPaused = useRef(false);
   const userRequestedPlay = useRef(false);
+  const [loadVideo, setLoadVideo] = useState(false);
+  useEffect(() => {
+    const mobile = window.matchMedia("(max-width: 600px)");
+    const sync = () => setLoadVideo(!mobile.matches);
+    sync();
+    mobile.addEventListener("change", sync);
+    return () => mobile.removeEventListener("change", sync);
+  }, []);
   const [playing, setPlaying] = useState(false);
   const [failed, setFailed] = useState(false);
   useEffect(() => {
     const element = video.current;
-    if (!element) return;
+    if (!element || !loadVideo) return;
+    element.load();
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     let visible = true;
     const sync = () => {
@@ -46,11 +55,12 @@ export function HeroVideo() {
       element.removeEventListener("canplay", sync);
       element.pause();
     };
-  }, []);
+  }, [loadVideo]);
   function toggle() {
     const element = video.current;
     if (!element) return;
     if (element.paused) {
+      setLoadVideo(true);
       userPaused.current = false;
       userRequestedPlay.current = true;
       void element.play().catch(() => setPlaying(false));
@@ -67,14 +77,14 @@ export function HeroVideo() {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload={loadVideo ? "metadata" : "none"}
         poster="/videos/kumbh-mela-poster.jpg"
         aria-label="Muted aerial footage of the Kumbh Mela gathering in Prayagraj"
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         onError={() => setFailed(true)}
       >
-        <source src="/videos/kumbh-mela.mp4" type="video/mp4" />
+        {loadVideo && <source src="/videos/kumbh-mela.mp4" type="video/mp4" />}
       </video>
       {failed && (
         <img

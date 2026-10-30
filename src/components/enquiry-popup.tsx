@@ -30,7 +30,11 @@ export function EnquiryPopup({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="stay-modal enquiry-popup" aria-describedby="enquiry-description">
         <aside className="enquiry-visual">
-          <img src="/images/ramkund.jpg" alt="Sunset over the sacred Godavari River in Nashik" />
+          <img
+            src="/images/trimbak-enquiry.jpg"
+            alt="Stone architecture of Trimbakeshwar Shiva Temple near Nashik"
+            decoding="async"
+          />
           <div className="enquiry-image-shade" />
           <span className="enquiry-visual-label">
             <Sparkles size={13} /> THE NASHIK KUMBH EDIT / 2027
@@ -47,7 +51,7 @@ export function EnquiryPopup({
               <br />A little help planning it all.
             </p>
             <small>
-              <MapPin size={12} /> Ramkund, Nashik
+              <MapPin size={12} /> Trimbakeshwar, Nashik
             </small>
           </div>
         </aside>

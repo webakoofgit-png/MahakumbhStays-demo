@@ -1,0 +1,119 @@
+[
+  {
+    "label": "Demo traveller form opens",
+    "passed": true
+  },
+  {
+    "label": "Final homepage 360px fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Hero copy has readable inset at 360px",
+    "passed": true
+  },
+  {
+    "label": "Hero supporting copy visible at 360px",
+    "passed": true
+  },
+  {
+    "label": "Final homepage 390px fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Hero copy has readable inset at 390px",
+    "passed": true
+  },
+  {
+    "label": "Hero supporting copy visible at 390px",
+    "passed": true
+  },
+  {
+    "label": "Mobile footage defaults to poster",
+    "passed": true
+  },
+  {
+    "label": "Final homepage 430px fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Hero copy has readable inset at 430px",
+    "passed": true
+  },
+  {
+    "label": "Hero supporting copy visible at 430px",
+    "passed": true
+  },
+  {
+    "label": "Final homepage 768px fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Hero copy has readable inset at 768px",
+    "passed": true
+  },
+  {
+    "label": "Hero supporting copy visible at 768px",
+    "passed": true
+  },
+  {
+    "label": "Final homepage 1024px fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Hero copy has readable inset at 1024px",
+    "passed": true
+  },
+  {
+    "label": "Hero supporting copy visible at 1024px",
+    "passed": true
+  },
+  {
+    "label": "Final homepage 1440px fits viewport",
+    "passed": true
+  },
+  {
+    "label": "Hero copy has readable inset at 1440px",
+    "passed": true
+  },
+  {
+    "label": "Hero supporting copy visible at 1440px",
+    "passed": true
+  },
+  {
+    "label": "Homestays category has results",
+    "passed": true
+  },
+  {
+    "label": "Homestays active indicator",
+    "passed": true
+  },
+  {
+    "label": "Dharamshalas category has results",
+    "passed": true
+  },
+  {
+    "label": "Dharamshalas active indicator",
+    "passed": true
+  },
+  {
+    "label": "Tent Cities category has results",
+    "passed": true
+  },
+  {
+    "label": "Tent Cities active indicator",
+    "passed": true
+  },
+  {
+    "label": "Premium collection has results",
+    "passed": true
+  },
+  {
+    "label": "Group collection has results",
+    "passed": true
+  },
+  {
+    "label": "No browser exceptions",
+    "passed": true,
+    "errors": []
+  }
+]

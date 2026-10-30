@@ -1,6 +1,6 @@
 [
   {
-    "label": "Homepage entry automatically shows enquiry popup",
+    "label": "Enquiry action shows accessible enquiry popup",
     "passed": true
   },
   {
@@ -49,6 +49,30 @@
   },
   {
     "label": "Enquiry popup 1440px: image remains visible",
+    "passed": true
+  },
+  {
+    "label": "Quick enquiry has only three fields",
+    "passed": true
+  },
+  {
+    "label": "Quick enquiry 1100x600: no internal scrolling",
+    "passed": true
+  },
+  {
+    "label": "Quick enquiry 1440x650: no internal scrolling",
+    "passed": true
+  },
+  {
+    "label": "Quick enquiry 390x640: no internal scrolling",
+    "passed": true
+  },
+  {
+    "label": "Quick enquiry 360x568: no internal scrolling",
+    "passed": true
+  },
+  {
+    "label": "Quick enquiry 844x390: no internal scrolling",
     "passed": true
   },
   {
@@ -108,15 +132,15 @@
     "passed": true
   },
   {
-    "label": "Journey collection: Near Sacred Sites",
+    "label": "Journey collection: Near Trimbakeshwar",
     "passed": true
   },
   {
-    "label": "Journey collection: Family-Friendly Stays",
+    "label": "Journey collection: Family Accommodation",
     "passed": true
   },
   {
-    "label": "Journey collection: Peaceful Retreats",
+    "label": "Journey collection: Budget-Friendly Stays",
     "passed": true
   },
   {

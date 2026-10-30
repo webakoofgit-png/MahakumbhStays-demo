@@ -33,6 +33,6 @@ export const IMG = {
 
 // Fallback gradient shown while an image loads or if it fails.
 export function imageFallback(label: string) {
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='#172B4D'/><stop offset='100%' stop-color='#E89136'/></linearGradient></defs><rect width='800' height='600' fill='url(%23g)'/><text x='400' y='300' font-family='sans-serif' font-size='28' fill='white' text-anchor='middle' dominant-baseline='middle' opacity='0.85'>${label}</text></svg>`;
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='#172B4D'/><stop offset='100%' stop-color='#22B8F0'/></linearGradient></defs><rect width='800' height='600' fill='url(%23g)'/><text x='400' y='300' font-family='sans-serif' font-size='28' fill='white' text-anchor='middle' dominant-baseline='middle' opacity='0.85'>${label}</text></svg>`;
   return `data:image/svg+xml,${encodeURIComponent(svg)}`;
 }

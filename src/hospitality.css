@@ -7,7 +7,7 @@
   height: calc(100% - 48px);
   border-radius: 20px;
   overflow: hidden;
-  background: #c5b49b;
+  background: #172b4db3;
   isolation: isolate;
   animation: signature-image 0.25s ease-out both;
 }
@@ -28,7 +28,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #132c3d35, transparent 35%, #132c3d28);
+  background: linear-gradient(180deg, #172b4d35, transparent 35%, #172b4d28);
   pointer-events: none;
   z-index: 0;
 }
@@ -56,7 +56,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #f7d9ad;
+  background: #172b4db3;
   flex-shrink: 0;
 }
 .video-muted-label {
@@ -64,7 +64,7 @@
   align-items: center;
   gap: 5px;
   font-size: 9px;
-  background: #172e3566;
+  background: #172b4d66;
   border: 1px solid #ffffff55;
   padding: 7px 9px;
   border-radius: 20px;
@@ -80,9 +80,9 @@
   gap: 7px;
   min-height: 44px;
   min-width: 78px;
-  background: #fdfbf1f0;
-  color: #26404a;
-  border: 1px solid #fff8;
+  background: #fffffff0;
+  color: #172b4d;
+  border: 1px solid #ffffff88;
   border-radius: 9px;
   font-size: 10px;
   padding: 10px 12px;
@@ -96,8 +96,8 @@
 .premium-footer {
   position: relative;
   overflow: hidden;
-  background: #122f3d;
-  color: #c9d4d5;
+  background: #172b4d;
+  color: #172b4db3;
   margin-top: 30px;
   isolation: isolate;
 }
@@ -132,24 +132,24 @@
   gap: 8px;
   font-size: 8px;
   letter-spacing: 2px;
-  color: #e9bc8b;
+  color: #ff8a35;
 }
 .footer-invitation h2 {
   font-size: 45px;
   font-weight: 450;
   line-height: 1.16;
   letter-spacing: -1.5px;
-  color: #f8f7ef;
+  color: #f3f9ff;
   margin: 23px 0 16px;
 }
 .footer-invitation h2 em {
   font-family: Georgia, serif;
   font-size: 1.08em;
-  color: #edbb87;
+  color: #ff8a35;
   font-weight: 400;
 }
 .footer-invitation p {
-  color: #a8bbc0;
+  color: #172b4db3;
   font-size: 12px;
   margin: 0;
   line-height: 1.8;
@@ -165,18 +165,18 @@
   align-items: center;
   justify-content: center;
   gap: 35px;
-  background: #ecc296;
-  color: #233a3f;
-  border: 1px solid #f2d4ac;
+  background: #ff8a35;
+  color: #172b4d;
+  border: 1px solid #172b4db3;
   border-radius: 11px;
   padding: 17px 22px;
   min-height: 54px;
   font-size: 13px;
   font-weight: 650;
-  box-shadow: 0 7px 22px #0001;
+  box-shadow: 0 7px 22px #172b4d11;
 }
 .footer-enquire-button:hover {
-  background: #f5d4ae;
+  background: #ff8a35;
   transform: translateY(-2px);
 }
 .footer-enquire-button:active {
@@ -186,13 +186,13 @@
   display: flex;
   align-items: center;
   gap: 22px;
-  color: #c8d6d6;
+  color: #172b4db3;
   font-size: 11px;
   padding: 6px 1px;
   min-height: 36px;
 }
 .footer-invitation-actions > a:hover {
-  color: #f2c69a;
+  color: #ff8a35;
 }
 .footer-main {
   display: grid;
@@ -205,7 +205,7 @@
   display: flex;
   align-items: center;
   gap: 11px;
-  color: #f5f7ed;
+  color: #f3f9ff;
   font-size: 23px;
   font-weight: 650;
   letter-spacing: -0.9px;
@@ -215,20 +215,20 @@
   height: 43px;
   display: grid;
   place-items: center;
-  border: 1px solid #ebbf8a50;
+  border: 1px solid #ff8a3550;
   border-radius: 12px;
-  color: #edbb87;
+  color: #ff8a35;
   flex-shrink: 0;
 }
 .footer-brand em {
   font-style: normal;
-  color: #edbb87;
+  color: #ff8a35;
 }
 .footer-brand small {
   display: block;
   font-size: 6px;
   letter-spacing: 2.1px;
-  color: #b6c5c3;
+  color: #172b4db3;
   margin-top: 8px;
   font-weight: 450;
 }
@@ -236,7 +236,7 @@
   max-width: 290px;
   font-size: 12px;
   line-height: 1.9;
-  color: #a5b9bf;
+  color: #172b4db3;
   margin: 24px 0 20px;
 }
 .footer-location {
@@ -244,7 +244,7 @@
   align-items: center;
   gap: 7px;
   font-size: 9px;
-  color: #d8c7ad;
+  color: #172b4db3;
 }
 .footer-main nav {
   display: flex;
@@ -256,7 +256,7 @@
   font-size: 12px;
   font-weight: 550;
   letter-spacing: 0;
-  color: #edf0e7;
+  color: #f3f9ff;
   margin: 3px 0 15px;
 }
 .footer-main nav > a,
@@ -268,14 +268,14 @@
   padding: 4px 0;
   font-size: 11px;
   line-height: 1.6;
-  color: #a9bdc1;
+  color: #172b4db3;
   background: none;
   border: 0;
   text-align: left;
 }
 .footer-main nav > a:hover,
 .footer-main nav > button:hover {
-  color: #f1c899;
+  color: #ff8a35;
   transform: translateX(2px);
 }
 .footer-bottom {
@@ -285,7 +285,7 @@
   gap: 20px;
   padding: 22px 0 25px;
   font-size: 9px;
-  color: #91a9af;
+  color: #172b4db3;
 }
 .footer-bottom > button {
   display: flex;
@@ -293,13 +293,13 @@
   gap: 8px;
   background: none;
   border: 0;
-  color: #c4d0cf;
+  color: #172b4db3;
   font-size: 10px;
   padding: 9px 0;
   min-height: 36px;
 }
 .footer-bottom > button:hover {
-  color: #f0c496;
+  color: #ff8a35;
 }
 .footer-demo-label {
   display: flex;
@@ -309,7 +309,7 @@
 .footer-demo-label > i {
   width: 5px;
   height: 5px;
-  background: #a7b79b;
+  background: #172b4db3;
   border-radius: 50%;
 }
 .stay-modal.enquiry-popup {
@@ -323,14 +323,14 @@
   border-radius: 22px !important;
   overflow: auto;
   border: 1px solid #ffffff50;
-  box-shadow: 0 28px 100px #0d263555;
-  background: #fff;
+  box-shadow: 0 28px 100px #172b4d55;
+  background: #ffffff;
 }
 .enquiry-visual {
   position: relative;
   min-height: 100%;
   overflow: hidden;
-  background: #213d48;
+  background: #172b4d;
 }
 .enquiry-visual > img {
   position: absolute;
@@ -343,7 +343,7 @@
 .enquiry-image-shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, #0c2838f0, #0c28382c 90%);
+  background: linear-gradient(0deg, #172b4df0, #172b4d2c 90%);
 }
 .enquiry-visual-label {
   position: absolute;
@@ -355,19 +355,19 @@
   gap: 7px;
   font-size: 7px;
   letter-spacing: 1.4px;
-  color: #f7e4c5;
+  color: #172b4db3;
 }
 .enquiry-visual-copy {
   position: absolute;
   left: 29px;
   right: 25px;
   bottom: 36px;
-  color: #fbf8ed;
+  color: #f3f9ff;
 }
 .enquiry-visual-copy > span {
   font-size: 8px;
   letter-spacing: 1.9px;
-  color: #f3c99d;
+  color: #ff8a35;
 }
 .enquiry-popup .enquiry-visual-copy h2 {
   font-size: 37px !important;
@@ -376,12 +376,12 @@
   letter-spacing: -1.3px;
   margin: 19px 0 20px;
   padding: 0 !important;
-  color: #fff7ea;
+  color: #f3f9ff;
 }
 .enquiry-visual-copy > p {
   font-size: 12px;
   line-height: 1.8;
-  color: #d6e0dc;
+  color: #f3f9ff;
   margin-bottom: 30px;
 }
 .enquiry-visual-copy > small {
@@ -389,7 +389,7 @@
   align-items: center;
   gap: 6px;
   font-size: 9px;
-  color: #d6c4a7;
+  color: #172b4db3;
 }
 .enquiry-form-side {
   padding: 33px 33px 25px;
@@ -412,7 +412,7 @@
 .enquiry-form-side > p {
   font-size: 11px;
   line-height: 1.8;
-  color: #758079;
+  color: #172b4d;
   margin: 0 0 22px;
 }
 .enquiry-form {
@@ -422,13 +422,13 @@
   display: block;
   font-size: 11px;
   font-weight: 550;
-  color: #344b50;
+  color: #172b4d;
 }
 .enquiry-form .optional-label {
   display: inline;
   font-size: 9px;
   font-weight: 400;
-  color: #7c877d;
+  color: #172b4d;
 }
 .enquiry-form input:not([type="checkbox"]),
 .enquiry-form select,
@@ -438,16 +438,16 @@
   margin-top: 7px;
   font-size: 12px;
   font-weight: 400;
-  color: #233e49;
-  border-color: #dfe4d9;
+  color: #172b4d;
+  border-color: #f3f9ff;
   border-radius: 8px;
-  background: #fdfefa;
+  background: #ffffff;
   min-height: 45px;
   padding: 10px 12px;
 }
 .enquiry-form input::placeholder,
 .enquiry-form textarea::placeholder {
-  color: #929c91;
+  color: #172b4db3;
   font-size: 11px;
 }
 .enquiry-form textarea {
@@ -464,7 +464,7 @@
   gap: 9px;
   font-size: 9px;
   font-weight: 400;
-  color: #647267;
+  color: #172b4d;
   min-height: 30px;
   line-height: 1.6;
 }
@@ -474,18 +474,18 @@
   min-height: 0;
   padding: 0;
   margin: 0;
-  accent-color: #ad5429;
+  accent-color: #ff8a35;
   flex-shrink: 0;
 }
 .enquiry-form > .primary-button {
-  background: #ad5429;
-  border-color: #ad5429;
+  background: #ff8a35;
+  border-color: #ff8a35;
   min-height: 48px;
   gap: 25px;
   font-size: 12px;
 }
 .enquiry-form > .primary-button:hover {
-  background: #94441e;
+  background: #ff8a35;
 }
 .enquiry-form-footnote {
   display: flex;
@@ -494,7 +494,7 @@
   gap: 6px;
   font-size: 8px;
   line-height: 1.7;
-  color: #8a9388;
+  color: #172b4db3;
 }
 .enquiry-popup > button.absolute {
   width: 37px;
@@ -504,14 +504,14 @@
   top: 10px;
   display: grid;
   place-items: center;
-  background: #f4f5f0;
-  border: 1px solid #e8eadd;
-  color: #32494e;
+  background: #f3f9ff;
+  border: 1px solid #f3f9ff;
+  color: #172b4d;
   opacity: 1;
   z-index: 2;
 }
 .enquiry-popup > button.absolute:hover {
-  background: #e9eddf;
+  background: #f3f9ff;
 }
 .enquiry-success {
   display: flex;
@@ -529,8 +529,8 @@
   width: 63px;
   height: 63px;
   border-radius: 50%;
-  color: #4c744a;
-  background: #eff5e8;
+  color: #172b4d;
+  background: #f3f9ff;
   margin-bottom: 8px;
 }
 .enquiry-success h3 {
@@ -541,27 +541,27 @@
 }
 .enquiry-success > p {
   font-size: 12px;
-  color: #71816f;
+  color: #172b4d;
   margin: 0;
 }
 .enquiry-success > small {
   font-size: 9px;
-  color: #8d9689;
+  color: #172b4db3;
 }
 .enquiry-success > .enquiry-demo-note {
   font-size: 10px;
   line-height: 1.8;
   margin: 9px 0 5px;
-  color: #8b9488;
+  color: #172b4db3;
 }
 .enquiry-success > .primary-button {
-  background: #2e5040;
-  border-color: #2e5040;
+  background: #172b4d;
+  border-color: #172b4d;
   font-size: 12px;
 }
 .enquiry-success > .text-link {
   font-size: 11px;
-  color: #75816e;
+  color: #172b4d;
 }
 .enquiry-form .error-text {
   font-size: 11px;
@@ -760,7 +760,7 @@
     object-position: 50% 49%;
   }
   .enquiry-image-shade {
-    background: linear-gradient(90deg, #122f3dcc, #122f3d33);
+    background: linear-gradient(90deg, #172b4dcc, #172b4d33);
   }
   .enquiry-visual-label {
     top: 18px;
@@ -849,7 +849,7 @@
     height: 40px;
     top: 9px;
     right: 9px;
-    background: #fffdf4f2;
+    background: #fffffff2;
     border-color: #ffffffb3;
   }
   .enquiry-form > .primary-button {
@@ -910,7 +910,7 @@
   .video-muted-label {
     font-size: 7px;
     padding: 5px 7px;
-    background: #172e3580;
+    background: #172b4d80;
   }
   .video-muted-label svg {
     width: 11px;
@@ -1141,7 +1141,7 @@
 /* Cinematic hero: the Kumbh video fills the entire section on every screen. */
 .signature-home .hero {
   height: 540px;
-  background: #142f39;
+  background: #172b4d;
   border-radius: 26px;
   isolation: isolate;
 }
@@ -1153,7 +1153,7 @@
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  background: #142f39;
+  background: #172b4d;
   z-index: 0;
 }
 .signature-home .hero-shade {
@@ -1181,56 +1181,56 @@
   left: 48px;
   width: calc(100% - 96px);
   z-index: 2;
-  color: #fffdf5;
+  color: #ffffff;
 }
 .signature-home .hero-label {
   max-width: none;
-  color: #f2d0a6;
+  color: #ff8a35;
   font-size: 9px;
   letter-spacing: 2px;
   margin-bottom: 23px;
 }
 .signature-home .hero-label > span {
-  background: #f1c58f;
-  box-shadow: 0 0 0 5px #f1c58f19;
+  background: #ff8a35;
+  box-shadow: 0 0 0 5px #ff8a3519;
 }
 .signature-home .hero h1 {
   max-width: 800px;
   font-size: clamp(43px, 4.5vw, 66px);
   line-height: 1.1;
   letter-spacing: -2.5px;
-  color: #fffdf5;
+  color: #ffffff;
   margin-bottom: 20px;
-  text-shadow: 0 2px 20px #081e281a;
+  text-shadow: 0 2px 20px #172b4d1a;
 }
 .signature-home .hero h1 em {
-  color: #ffd09b;
+  color: #ff8a35;
 }
 .signature-home .hero-content > .hero-signature {
   max-width: 680px;
-  color: #f2d1ae;
+  color: #ff8a35;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 13px;
 }
 .signature-home .hero-content > .hero-support {
   max-width: 600px;
-  color: #d9e3df;
+  color: #f3f9ff;
   font-size: 13px;
   line-height: 1.85;
 }
 .signature-home .hero-proof {
   max-width: none;
   margin-top: 25px;
-  color: #e8eee7;
+  color: #f3f9ff;
   gap: 18px;
   font-size: 11px;
 }
 .signature-home .hero-proof svg {
-  color: #f3cfa2;
+  color: #ff8a35;
 }
 .signature-home .hero-proof i {
-  background: #e3e9de55;
+  background: #f3f9ff55;
 }
 .signature-home .hero-caption {
   z-index: 2;
@@ -1238,30 +1238,30 @@
   bottom: 104px;
   min-width: 218px;
   max-width: 290px;
-  background: #163440ba;
+  background: #172b4dba;
   border: 1px solid #ffffff45;
-  color: #fff9ed;
+  color: #f3f9ff;
   backdrop-filter: blur(8px);
-  box-shadow: 0 7px 24px #0a23351a;
+  box-shadow: 0 7px 24px #172b4d1a;
   border-radius: 13px;
   padding: 16px 18px;
 }
 .signature-home .hero-caption strong {
-  color: #fff9ed;
+  color: #f3f9ff;
   font-size: 18px;
 }
 .signature-home .hero-caption small {
-  color: #efd1ac;
+  color: #172b4db3;
 }
 .signature-home .hero-caption > div > span {
-  color: #d5dfd9;
+  color: #f3f9ff;
 }
 .signature-home .hero-caption > svg {
-  color: #f4c48e;
+  color: #ff8a35;
 }
 .signature-home .hero-caption .location-indicator {
-  background: #e9bf86;
-  box-shadow: 0 0 0 5px #e9bf861a;
+  background: #ff8a35;
+  box-shadow: 0 0 0 5px #ff8a351a;
 }
 .signature-home .hero-video-topline {
   top: 23px;
@@ -1273,9 +1273,9 @@
   display: none;
 }
 .signature-home .video-muted-label {
-  background: #16344085;
+  background: #172b4d85;
   border-color: #ffffff55;
-  color: #fff8ed;
+  color: #f3f9ff;
   font-size: 9px;
   padding: 8px 11px;
 }
@@ -1284,7 +1284,7 @@
   bottom: 101px;
   background: #ffffff18;
   border-color: #ffffff70;
-  color: #fffdf4;
+  color: #ffffff;
   backdrop-filter: blur(5px);
   min-height: 44px;
   min-width: 82px;
@@ -1432,7 +1432,7 @@
     letter-spacing: 1.3px;
     line-height: 1.5;
     margin-bottom: 21px;
-    color: #f7d7ad;
+    color: #172b4db3;
   }
   .signature-home .hero h1 {
     max-width: 100%;
@@ -1440,18 +1440,18 @@
     line-height: 1.15;
     letter-spacing: -1.2px;
     margin: 0 0 19px;
-    color: #fffdf5;
+    color: #ffffff;
   }
   .signature-home .hero h1 em {
     font-size: 1.03em;
-    color: #ffd4a4;
+    color: #ff8a35;
   }
   .signature-home .hero-content > .hero-signature {
     display: block;
     max-width: 100%;
     font-size: 11px;
     line-height: 1.7;
-    color: #f5d6b2;
+    color: #172b4db3;
     margin: 0;
   }
   .signature-home .hero-content > .hero-support,
@@ -1467,7 +1467,7 @@
     font-size: 7px;
     padding: 6px 8px;
     gap: 5px;
-    background: #18333d80;
+    background: #172b4d80;
   }
   .signature-home .hero-video-toggle {
     left: 21px;
@@ -1491,7 +1491,7 @@
     max-width: calc(100% - 122px);
     padding: 12px 13px;
     gap: 10px;
-    background: #193743ab;
+    background: #172b4dab;
     border-color: #ffffff55;
     border-radius: 10px;
   }
@@ -1511,7 +1511,7 @@
     width: 7px;
     height: 7px;
     margin-top: 3px;
-    box-shadow: 0 0 0 4px #e9bf8619;
+    box-shadow: 0 0 0 4px #ff8a3519;
   }
   .signature-home .search-area.floating {
     margin-top: 12px;
@@ -1575,7 +1575,7 @@
 .enquiry-form .quick-enquiry-consent {
   font-size: 9px;
   line-height: 1.65;
-  color: #7a8577;
+  color: #172b4d;
   margin: 0;
   font-weight: 400;
 }

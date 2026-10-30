@@ -1,4 +1,4 @@
-﻿import { spawn } from "node:child_process";
+import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 const base = process.env.BASE_URL ?? "http://127.0.0.1:8080";
@@ -210,7 +210,7 @@ try {
     process.exit(errors.length ? 1 : 0);
   }
 
-  await evaluate('window.scrollTo({top:0,behavior:"instant"})');
+  await captureSection(".cinema-section", "cinema-desktop");
   await waitFor(
     "document.querySelector('.hero-video').readyState>=2&&!document.querySelector('.hero-video').paused",
   );
@@ -242,7 +242,7 @@ try {
     `document.documentElement.scrollWidth<=innerWidth`,
   );
   await click(".footer-bottom button");
-  await pause(600);
+  await waitFor("window.scrollY<20");
   await assert("Footer back-to-top works", `window.scrollY<20`);
   await viewport(1440, 1000);
   await evaluate("localStorage.clear()");
@@ -285,16 +285,16 @@ try {
   await click(".search-submit");
   for (const [title, condition] of [
     [
-      "Near Sacred Sites",
+      "Near Trimbakeshwar",
       "[...document.querySelectorAll('.card-location>span')].every(e=>e.textContent.includes('Trimbakeshwar'))",
     ],
     [
-      "Family-Friendly Stays",
+      "Family Accommodation",
       "[...document.querySelectorAll('.property-card')].every(e=>e.textContent.includes('Family rooms'))",
     ],
     [
-      "Peaceful Retreats",
-      "[...document.querySelectorAll('.card-location>span')].every(e=>e.textContent.includes('Igatpuri'))",
+      "Budget-Friendly Stays",
+      "[...document.querySelectorAll('.card-price strong')].every(e=>Number(e.textContent.replace(/[^0-9]/g,''))<=2000)",
     ],
   ]) {
     await clickText(title, ".journey-card");
@@ -596,6 +596,7 @@ try {
     "Reduced motion keeps hero video paused by default",
     `document.querySelector('.hero-video').paused&&document.querySelector('.hero-video').muted`,
   );
+  await captureSection(".cinema-section", "cinema-reduced-motion");
   await click('[aria-label="Play Kumbh Mela video"]');
   await waitFor("!document.querySelector('.hero-video').paused");
   await assert(
