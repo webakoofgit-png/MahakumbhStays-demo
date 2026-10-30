@@ -4,7 +4,7 @@ import { findProperty, getDemoState } from "@/lib/demo-store";
 export const Route = createFileRoute("/$")({
   beforeLoad: ({ location }) => {
     if (
-      !/^\/(stays|wishlist|bookings|booking|owner(?:\/.*)?|admin(?:\/.*)?|property\/[^/]+)\/?$/.test(
+      !/^\/(about|contact|faq|privacy|terms|cancellation|stays|wishlist|bookings|booking|owner(?:\/.*)?|admin(?:\/.*)?|property\/[^/]+)\/?$/.test(
         location.pathname,
       )
     )
@@ -22,6 +22,12 @@ export const Route = createFileRoute("/$")({
       owner: "Owner dashboard",
       admin: "Admin dashboard",
       booking: "Plan your booking",
+      about: "About us",
+      contact: "Contact & support",
+      faq: "Frequently asked questions",
+      privacy: "Privacy policy",
+      terms: "Terms & conditions",
+      cancellation: "Cancellation & refunds",
     };
     return {
       meta: [

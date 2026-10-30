@@ -49,6 +49,7 @@ import { StayPriceSummary } from "./stay-price-summary";
 import { HeroVideo } from "./hero-video";
 import { HeroDestinationSlider } from "./hero-destination-slider";
 import { EnquiryPopup } from "./enquiry-popup";
+import { InformationPage, informationPages } from "./information-page";
 import { PremiumFooter } from "./premium-footer";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "./ui/dropdown-menu";
 const chips = ["Budget Stays", "Family Friendly", "Near Trimbakeshwar", "Parking Available"];
@@ -81,14 +82,23 @@ export function Marketplace() {
   const [searched, setSearched] = useState(false);
   const [category, setCategory] = useState("All Stays");
   useEffect(() => {
-    const requested = new URLSearchParams(window.location.search).get("category");
+    const params = new URLSearchParams(window.location.search);
+    const destination = params.get("destination");
+    if (destination && DESTINATIONS.some((name) => name === destination)) {
+      setCriteria((previous) => ({ ...previous, destination: destination as SearchCriteria["destination"] }));
+      setSearched(true);
+    }
+    const requested = params.get("category");
     if (requested && accommodationTabs.some((tab) => tab.name === requested)) {
       setCategory(requested);
       setSearched(true);
     }
   }, [path]);
   useEffect(() => {
-    if (state.searchCriteria) setCriteria(state.searchCriteria);
+    if (state.searchCriteria) {
+      const destination = new URLSearchParams(window.location.search).get("destination");
+      setCriteria(destination && DESTINATIONS.some((name) => name === destination) ? { ...state.searchCriteria, destination: destination as SearchCriteria["destination"] } : state.searchCriteria);
+    }
   }, [state.searchCriteria]);
   const results = filterStays(state, criteria, active, maxPrice)
     .filter(
@@ -297,7 +307,9 @@ export function Marketplace() {
       </header>
       <main id="main">
         <Suspense fallback={<PageSkeleton />}>
-          {path.startsWith("/owner") || path.startsWith("/admin") ? (
+          {informationPages[path] ? (
+            <InformationPage path={path} onEnquiry={() => setEnquiryOpen(true)} onGroup={() => setGroup(true)} />
+          ) : path.startsWith("/owner") || path.startsWith("/admin") ? (
             <Dashboard admin={path.startsWith("/admin")} />
           ) : path.startsWith("/property/") || path === "/booking" ? (
             <PropertyExperience slug={decodeURIComponent(path.split("/")[2] ?? "")} />

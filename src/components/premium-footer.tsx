@@ -1,6 +1,6 @@
-﻿import { ArrowRight, ArrowUpRight, ArrowUp, MapPin, Sparkles, Sun } from "lucide-react";
-import { demoActions, getDemoState } from "@/lib/demo-store";
-import { initialCriteria } from "./stay-ui";
+﻿import { ArrowRight, ArrowUpRight, ArrowUp, MapPin, Sparkles, Sun, Instagram, Facebook, Youtube, Linkedin } from "lucide-react";
+import { SOCIAL_LINKS } from "@/data/social-links";
+const socialIcons = { Instagram, Facebook, YouTube: Youtube, LinkedIn: Linkedin };
 import type { Destination } from "@/data/types";
 export function PremiumFooter({
   onEnquiry,
@@ -58,9 +58,24 @@ export function PremiumFooter({
             <span className="footer-location">
               <MapPin size={14} /> Rooted in Nashik. Made for your journey.
             </span>
+            <div className="footer-social" role="group" aria-label="Social media">
+              <p>Stay connected</p>
+              <div className="footer-social-icons">
+                {SOCIAL_LINKS.map(({ name, url }) => {
+                  const Icon = socialIcons[name];
+                  return url ? (
+                    <a key={name} href={url} target="_blank" rel="noopener noreferrer" aria-label={name + " (opens in a new tab)"} title={name}><Icon size={19} aria-hidden="true" /></a>
+                  ) : (
+                    <button key={name} type="button" aria-disabled="true" aria-label={name + " — profile link coming soon"} title={name + " — profile link coming soon"}><Icon size={19} aria-hidden="true" /></button>
+                  );
+                })}
+              </div>
+              {!SOCIAL_LINKS.some(({ url }) => Boolean(url)) && <small>Profile links coming soon</small>}
+            </div>
           </div>
           <nav aria-label="Footer explore">
             <h3>Your next chapter</h3>
+            <a href="/about">About MahakumbhStays</a>
             <a href="/stays">Explore all stays</a>
             <a href="/wishlist">Your saved stays</a>
             <a href="/bookings">My bookings</a>
@@ -73,13 +88,7 @@ export function PremiumFooter({
             {destinations.map((d) => (
               <a
                 key={d}
-                href="/stays"
-                onClick={() =>
-                  demoActions.setSearchCriteria({
-                    ...(getDemoState().searchCriteria ?? initialCriteria),
-                    destination: d,
-                  })
-                }
+                href={`/stays?destination=${encodeURIComponent(d)}`}
               >
                 {d}
               </a>
@@ -87,6 +96,8 @@ export function PremiumFooter({
           </nav>
           <nav aria-label="Footer assistance">
             <h3>A little help, anytime</h3>
+            <a href="/contact">Contact & support</a>
+            <a href="/faq">Frequently asked questions</a>
             <button onClick={onEnquiry}>
               Make an enquiry <ArrowUpRight size={12} />
             </button>
@@ -96,6 +107,11 @@ export function PremiumFooter({
             <a href="/image-credits.html">Photo & video credits</a>
           </nav>
         </div>
+        <nav className="footer-policy-links" aria-label="Policies">
+          <a href="/privacy">Privacy policy</a>
+          <a href="/terms">Terms & conditions</a>
+          <a href="/cancellation">Cancellation & refunds</a>
+        </nav>
         <div className="footer-bottom">
           <span>© 2026 MahakumbhStays. Made for meaningful journeys.</span>
           <span className="footer-demo-label">

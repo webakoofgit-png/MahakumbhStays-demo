@@ -1,0 +1,91 @@
+[
+  {
+    "label": "/about renders dedicated content",
+    "passed": true
+  },
+  {
+    "label": "/about footer has complete policies",
+    "passed": true
+  },
+  {
+    "label": "/contact renders dedicated content",
+    "passed": true
+  },
+  {
+    "label": "/contact footer has complete policies",
+    "passed": true
+  },
+  {
+    "label": "/faq renders dedicated content",
+    "passed": true
+  },
+  {
+    "label": "/faq footer has complete policies",
+    "passed": true
+  },
+  {
+    "label": "/privacy renders dedicated content",
+    "passed": true
+  },
+  {
+    "label": "/privacy footer has complete policies",
+    "passed": true
+  },
+  {
+    "label": "/terms renders dedicated content",
+    "passed": true
+  },
+  {
+    "label": "/terms footer has complete policies",
+    "passed": true
+  },
+  {
+    "label": "/cancellation renders dedicated content",
+    "passed": true
+  },
+  {
+    "label": "/cancellation footer has complete policies",
+    "passed": true
+  },
+  {
+    "label": "FAQ expands",
+    "passed": true
+  },
+  {
+    "label": "Contact enquiry works",
+    "passed": true
+  },
+  {
+    "label": "Destination URL applies real filter",
+    "passed": true
+  },
+  {
+    "label": "Information page fits 360px",
+    "passed": true
+  },
+  {
+    "label": "Information page fits 390px",
+    "passed": true
+  },
+  {
+    "label": "Information page fits 430px",
+    "passed": true
+  },
+  {
+    "label": "Information page fits 768px",
+    "passed": true
+  },
+  {
+    "label": "Information page fits 1024px",
+    "passed": true
+  },
+  {
+    "label": "Information page fits 1440px",
+    "passed": true
+  },
+  {
+    "label": "No uncaught browser exceptions",
+    "passed": true,
+    "errors": []
+  }
+]
