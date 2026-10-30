@@ -1,0 +1,55 @@
+[
+  {
+    "label": "Area map opens with filtered stays",
+    "passed": true
+  },
+  {
+    "label": "Marathi navigation and document language",
+    "passed": true
+  },
+  {
+    "label": "Language persists between pages",
+    "passed": true
+  },
+  {
+    "label": "Selected dates show trip totals",
+    "passed": true
+  },
+  {
+    "label": "Price breakdown includes fees",
+    "passed": true
+  },
+  {
+    "label": "Header and results fit 360px",
+    "passed": true
+  },
+  {
+    "label": "Header and results fit 390px",
+    "passed": true
+  },
+  {
+    "label": "Header and results fit 430px",
+    "passed": true
+  },
+  {
+    "label": "Header and results fit 768px",
+    "passed": true
+  },
+  {
+    "label": "Header and results fit 1024px",
+    "passed": true
+  },
+  {
+    "label": "Header and results fit 1440px",
+    "passed": true
+  },
+  {
+    "label": "Map on mobile retains area selector",
+    "passed": true
+  },
+  {
+    "label": "No uncaught exceptions",
+    "passed": true,
+    "errors": []
+  }
+]

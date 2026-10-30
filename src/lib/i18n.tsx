@@ -210,8 +210,10 @@ export function LangProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("en");
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(LANG_KEY) as Lang | null;
-    if (stored && DICTS[stored]) setLangState(stored);
+    try {
+      const stored = window.localStorage.getItem(LANG_KEY) as Lang | null;
+      if (stored && DICTS[stored]) setLangState(stored);
+    } catch { /* Storage may be unavailable in private browsing. */ }
   }, []);
 
   const setLang = (l: Lang) => {

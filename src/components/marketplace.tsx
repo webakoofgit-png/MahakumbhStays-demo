@@ -1,4 +1,4 @@
-﻿import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { useLocation } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -23,6 +23,12 @@ import {
   Compass,
   Bookmark,
   CalendarDays,
+  Hotel,
+  HouseHeart,
+  Landmark,
+  TentTree,
+  LayoutGrid,
+  ChevronDown,
 } from "lucide-react";
 import { Modal, AmenityRow, GuestPicker, initialCriteria } from "./stay-ui";
 import { DESTINATIONS } from "@/data/seed";
@@ -37,12 +43,26 @@ const Dashboard = lazy(() => import("./stay-dashboard").then((m) => ({ default: 
 import { SearchExperience } from "./search-experience";
 import { SignatureDestinations, JourneyCollections } from "./signature-destinations";
 import { PageSkeleton } from "./signature-loading";
+import { useLang, LANGUAGES, type Lang } from "@/lib/i18n";
+import { StayAreaMap } from "./stay-area-map";
+import { StayPriceSummary } from "./stay-price-summary";
 import { HeroVideo } from "./hero-video";
+import { HeroDestinationSlider } from "./hero-destination-slider";
 import { EnquiryPopup } from "./enquiry-popup";
 import { PremiumFooter } from "./premium-footer";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "./ui/dropdown-menu";
 const chips = ["Budget Stays", "Family Friendly", "Near Trimbakeshwar", "Parking Available"];
+const accommodationTabs = [
+  { name: "All Stays", icon: LayoutGrid, tone: "blue" },
+  { name: "Hotels", icon: Hotel, tone: "cyan" },
+  { name: "Homestays", icon: HouseHeart, tone: "orange" },
+  { name: "Dharamshalas", icon: Landmark, tone: "blue" },
+  { name: "Tent Cities", icon: TentTree, tone: "cyan" },
+];
 export function Marketplace() {
   const { state } = useDemoStore();
+  const { lang, setLang, t } = useLang();
+  const [mapView, setMapView] = useState(false);
   const path = useLocation().pathname;
   const [criteria, setCriteria] = useState<SearchCriteria>(initialCriteria);
   const [active, setActive] = useState<string[]>([]);
@@ -60,6 +80,13 @@ export function Marketplace() {
   const [menu, setMenu] = useState(false);
   const [searched, setSearched] = useState(false);
   const [category, setCategory] = useState("All Stays");
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("category");
+    if (requested && accommodationTabs.some((tab) => tab.name === requested)) {
+      setCategory(requested);
+      setSearched(true);
+    }
+  }, [path]);
   useEffect(() => {
     if (state.searchCriteria) setCriteria(state.searchCriteria);
   }, [state.searchCriteria]);
@@ -89,6 +116,56 @@ export function Marketplace() {
           ? b.rating - a.rating
           : Number(b.featured) - Number(a.featured),
     );
+  const pageRef = useRef<HTMLDivElement>(null);
+  const previousResults = useRef("");
+  const resultsKey = JSON.stringify([path, results.map((property) => property.id), criteria, active, category, maxPrice, sort]);
+  useEffect(() => {
+    const root = pageRef.current;
+    if (!root || !window.IntersectionObserver) return;
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (preference.matches) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.remove("reveal-pending");
+        entry.target.classList.add("reveal-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.05 });
+    root.querySelectorAll<HTMLElement>("[data-reveal], .accommodation-section, .cinema-section, .journey-section").forEach((element) => {
+      if (element.dataset["motionReady"]) return;
+      element.dataset["motionReady"] = "true";
+      if (element.getBoundingClientRect().top >= window.innerHeight) {
+        element.classList.add("reveal-pending");
+        observer.observe(element);
+      }
+    });
+    const revealAll = () => {
+      if (preference.matches) root.querySelectorAll(".reveal-pending").forEach((element) => element.classList.remove("reveal-pending"));
+    };
+    preference.addEventListener("change", revealAll);
+    return () => {
+      observer.disconnect();
+      preference.removeEventListener("change", revealAll);
+      root.querySelectorAll<HTMLElement>(".reveal-pending").forEach((element) => {
+        element.classList.remove("reveal-pending");
+        delete element.dataset["motionReady"];
+      });
+    };
+  }, [path, resultsKey]);
+  useEffect(() => {
+    const changed = previousResults.current && previousResults.current !== resultsKey;
+    previousResults.current = resultsKey;
+    if (!changed || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const animations: Animation[] = [];
+    pageRef.current?.querySelectorAll<HTMLElement>(".property-grid .property-card").forEach((card, index) => {
+      if (!card.animate) return;
+      animations.push(card.animate([{ opacity: 0.45, translate: "0 8px" }, { opacity: 1, translate: "0 0" }], {
+        duration: 220, delay: Math.min(index, 5) * 20, easing: "ease-out", fill: "backwards",
+      }));
+    });
+    return () => animations.forEach((animation) => animation.cancel());
+  }, [resultsKey]);
   const home = path === "/";
   useEffect(() => {
     if (!home) return;
@@ -140,6 +217,7 @@ export function Marketplace() {
   }
   return (
     <div
+      ref={pageRef}
       className={`marketplace ${home ? "signature-home" : ""} ${mobileNav ? "with-bottom-nav" : ""}`}
     >
       <a className="skip-link" href="#main">
@@ -161,25 +239,51 @@ export function Marketplace() {
             <small>STAY CLOSE TO WHAT MATTERS</small>
           </span>
         </a>
-        <nav className={menu ? "open" : ""} aria-label="Main navigation">
-          <a className={home ? "active" : ""} href="/">
-            Home
+        <nav className={`header-primary-nav ${menu ? "open" : ""}`} aria-label="Main navigation">
+          <a className={home ? "active" : ""} href="/" aria-current={home ? "page" : undefined}>
+            <House className="nav-icon nav-icon-blue" size={17} /> {t("nav.home")}
           </a>
-          <a href="/stays">Explore stays</a>
-          <button onClick={() => setGroup(true)}>Group bookings</button>
-          <a href="/owner">
-            Partner with us <ArrowUpRight size={13} />
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className={path === "/stays" ? "active explore-trigger" : "explore-trigger"}>
+                <Compass className="nav-icon nav-icon-cyan" size={17} /> {t("nav.explore")} <ChevronDown size={13} />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="header-stays-dropdown" align="start" sideOffset={10}>
+              {accommodationTabs.map(({name, icon: Icon, tone}) => (
+                <DropdownMenuItem key={name} onSelect={() => {
+                  setMenu(false);
+                  if (home || path === "/stays") {
+                    setCategory(name);
+                    setSearched(true);
+                    showResults();
+                  } else {
+                    window.location.assign(`/stays?category=${encodeURIComponent(name)}`);
+                  }
+                }}>
+                  <span className={`category-icon category-icon-${tone}`} aria-hidden="true"><Icon size={20} /></span>
+                  <span>{name}</span>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <button onClick={() => {setMenu(false); setGroup(true);}}>
+            <Users className="nav-icon nav-icon-orange" size={17} /> Group bookings
+          </button>
+          <a className="list-property-link" href="/owner">
+            <Hotel size={17} /> {t("nav.listProperty")} <ArrowUpRight size={13} />
           </a>
         </nav>
         <div className="header-actions">
+          <select className="language-switch" aria-label="Interface language" title={t("lang.note")} value={lang} onChange={(event) => setLang(event.target.value as Lang)}>{LANGUAGES.map((language) => <option key={language.code} value={language.code}>{language.label}</option>)}</select>
           <a className="icon-button" href="/wishlist" aria-label="Your wishlist">
             <Heart size={19} />
           </a>
           <button className="account-button outline-button" onClick={() => setAccountOpen(true)}>
-            Login / Register
+            {t("nav.login")}
           </button>
           <a href="/bookings" className="outline-button">
-            My bookings
+            {t("nav.bookings")}
           </a>
           <button
             className="icon-button mobile-menu"
@@ -247,10 +351,10 @@ export function Marketplace() {
                       <span /> THE NASHIK KUMBH EDIT · 2027
                     </span>
                     <h1>
-                      Find Your Perfect Stay{" "}
+                      {lang !== "en" ? t("hero.title") : <>Find Your Perfect Stay{" "}
                       <span>
                         for Nashik Kumbh <em>2027</em>
-                      </span>
+                      </span></>}
                     </h1>
                     <p className="hero-signature">Your Stay for Every Sacred Journey.</p>
                     <p className="hero-support">
@@ -267,20 +371,11 @@ export function Marketplace() {
                       </span>
                     </div>
                   </div>
-                  <div className="hero-destination-photo">
-                    <img
-                      src="/images/trimbakeshwar-card.jpg"
-                      alt="Trimbakeshwar temple"
-                      fetchPriority="high"
-                    />
-                    <span>
-                      <MapPin size={16} /> Trimbakeshwar · Nashik
-                    </span>
-                  </div>
+                  <HeroDestinationSlider />
                 </section>
               )}
               <nav className="stay-category-nav container" aria-label="Accommodation categories">
-                {["All Stays", "Hotels", "Homestays", "Dharamshalas", "Tent Cities"].map((name) => (
+                {accommodationTabs.map(({ name, icon: Icon, tone }) => (
                   <button
                     key={name}
                     aria-pressed={category === name}
@@ -290,8 +385,11 @@ export function Marketplace() {
                       showResults();
                     }}
                   >
-                    <BedDouble size={19} />
-                    {name}
+                    <span className={`category-icon category-icon-${tone}`} aria-hidden="true">
+                      <Icon size={30} strokeWidth={1.7} />
+                      <span className="category-icon-spark" />
+                    </span>
+                    <span>{name}</span>
                   </button>
                 ))}
               </nav>
@@ -455,6 +553,7 @@ export function Marketplace() {
                     </p>
                   </div>
                   <div className="results-controls">
+                    <button className="outline-button map-view-toggle" aria-pressed={mapView} onClick={() => setMapView(!mapView)}><MapPin size={16} />{lang === "mr" ? (mapView ? "नकाशा लपवा" : "नकाशा पहा") : lang === "hi" ? (mapView ? "नक्शा छिपाएँ" : "नक्शा देखें") : (mapView ? "Hide map" : "Map view")}</button>
                     <select
                       aria-label="Sort stays"
                       value={sort}
@@ -469,6 +568,7 @@ export function Marketplace() {
                     </button>
                   </div>
                 </div>
+                {mapView && <StayAreaMap properties={results} />}
                 <div
                   className={`property-grid ${home && !searched ? "featured-grid" : ""}`}
                   aria-label={
@@ -501,7 +601,14 @@ export function Marketplace() {
                           aria-label={`Save ${p.name}`}
                           aria-pressed={state.wishlist.includes(p.id)}
                           className={`heart-button ${state.wishlist.includes(p.id) ? "saved" : ""}`}
-                          onClick={() => demoActions.toggleWishlist(p.id)}
+                          onClick={(event) => {
+                            if (!state.wishlist.includes(p.id) && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                              event.currentTarget.querySelector("svg")?.animate?.([
+                                { transform: "scale(1)" }, { transform: "scale(1.3)", offset: 0.45 }, { transform: "scale(1)" },
+                              ], { duration: 280, easing: "ease-out" });
+                            }
+                            demoActions.toggleWishlist(p.id);
+                          }}
                         >
                           <Heart
                             size={19}
@@ -529,8 +636,9 @@ export function Marketplace() {
                         </h3>
                         <AmenityRow property={p} />
                         <a className="property-details-cta" href={`/property/${p.slug}`}>
-                          View Details <ArrowUpRight size={15} />
+                          {t("common.viewDetails")} <ArrowUpRight size={15} />
                         </a>
+                        <StayPriceSummary property={p} criteria={criteria} />
                         <div className="card-price">
                           <div>
                             <strong>{money(priceOf(p))}</strong>

@@ -10,6 +10,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
+import { LangProvider } from "../lib/i18n";
 import appCss from "../styles.css?url";
 import premiumCss from "../premium.css?url";
 import signatureCss from "../signature.css?url";
@@ -147,7 +148,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <LangProvider><Outlet /></LangProvider>
     </QueryClientProvider>
   );
 }

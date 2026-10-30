@@ -1,4 +1,5 @@
-﻿import { useState } from "react";
+﻿import { useLang } from "@/lib/i18n";
+import { useState } from "react";
 import {
   MapPin,
   Search,
@@ -20,6 +21,7 @@ type Props = {
   onGuests: () => void;
 };
 export function SearchExperience({ criteria, onChange, onSearch, onGuests }: Props) {
+  const { t } = useLang();
   const [open, setOpen] = useState(false);
   const [error, setError] = useState("");
   const afterCheckIn = criteria.checkIn
@@ -48,7 +50,7 @@ export function SearchExperience({ criteria, onChange, onSearch, onGuests }: Pro
           <div className="search-field destination-field">
             <MapPin />
             <label>
-              DESTINATION
+              {t("search.destination")}
               <input
                 list="destinations"
                 placeholder="Nashik & beyond"
@@ -68,9 +70,9 @@ export function SearchExperience({ criteria, onChange, onSearch, onGuests }: Pro
               </datalist>
             </label>
           </div>
-          <DateField label="Check-in" value={criteria.checkIn} onChange={updateCheckIn} />
+          <DateField label={t("search.checkIn")} value={criteria.checkIn} onChange={updateCheckIn} />
           <DateField
-            label="Check-out"
+            label={t("search.checkOut")}
             value={criteria.checkOut}
             min={afterCheckIn}
             onChange={(value) => onChange({ ...criteria, checkOut: value })}
@@ -78,13 +80,13 @@ export function SearchExperience({ criteria, onChange, onSearch, onGuests }: Pro
           <button className="search-field guest-button" onClick={onGuests}>
             <Users />
             <span>
-              <strong>GUESTS & ROOMS</strong>
+              <strong>{t("search.guests")} & {t("search.rooms")}</strong>
               {guestCount} guests · {criteria.rooms} room{criteria.rooms > 1 ? "s" : ""}
             </span>
           </button>
           <button className="search-submit" onClick={onSearch}>
             <Search size={18} />
-            <span>Search Stays</span>
+            <span>{t("search.searchBtn")}</span>
           </button>
         </div>
       </div>
@@ -208,7 +210,7 @@ export function SearchExperience({ criteria, onChange, onSearch, onGuests }: Pro
               <ShieldCheck size={15} /> Demo listings · Clear prices · No real charges
             </span>
             <button type="submit" className="primary-button full">
-              <Search size={18} /> Search Stays
+              <Search size={18} /> {t("search.searchBtn")}
             </button>
           </div>
         </form>
